@@ -1,0 +1,13 @@
+{
+  "name": "mock_rest_server",
+  "version": "1.0.0",
+  "scripts": {
+    "test": "jest"
+  },
+  "dependencies": {
+    "eslint": "^6.4.0",
+    "eslint-plugin-jest": "^22.17.0",
+    "jest": "^24.9.0",
+    "yarn": "^1.17.3"
+  }
+}
