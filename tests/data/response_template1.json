@@ -1,0 +1,13 @@
+{
+  "version": 1,
+  "url": "/my-request/@{param_1}",
+  "response": {
+    "/[a-zA-Z][0-9]+/": {
+      "status": "200",
+      "body": "This parameter is valid: @{{url.param}{param_1}}"
+    },
+    "default": {
+      "status": "404"
+    }
+  }
+}

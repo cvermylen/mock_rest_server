@@ -1,0 +1,15 @@
+{
+  "trace": {
+    "request": {
+      "output_format": "@{server.datetime.now} jsessionid:@{request.header.jsessionid} requested URL:@{request.url}",
+      "connector": {
+        "type": "file",
+        "path": "./somewhere",
+        "strategy": {
+          "type": "none",
+          "filename": "brouhaha.log"
+        }
+      }
+    }
+  }
+}
