@@ -15,7 +15,7 @@ test ('should throw an error if the field is not present', () => {
 });
 
 test ('a valid parameter should be accepted in the format string', () => {
-    const valid_param = ['a.Param', 'b.param'];
+    const valid_param = ['a.Param', 'b.Param'];
     let errors = [];
     const output_format = 'alea @{a.Param} jacta @{b.Param} est';
     expect(json_file.validate_output_format(output_format, valid_param, errors)).toBeTruthy();

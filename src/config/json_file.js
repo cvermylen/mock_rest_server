@@ -31,17 +31,13 @@ const validate_trace = (trace, error_messages) => {
 };
 
 const validate_output_format = (format, accepted_parameters, list_of_errors) => {
-    let result = true;
-    const parameter_regex = /@{[a-z]+}/g;
-    // const parameter_regex = /@{\w(\.\w)*}/g;
-    for (let param in format.search(parameter_regex)) {
-        const value = param.substr(2, param.length -1);
-        if(!accepted_parameters.find(p => p === value)) {
-            list_of_errors.push('In config file, parameter ' + value + 'is not defined');
-            result = false;
-        }
-    }
-    return result;
+    const initial_number_of_errors = list_of_errors.length;
+    const parameter_regex = /@\{(\w)+(\.(\w)+)*\}/g;
+    let a = format.match(parameter_regex)
+        .map(s => s.substr(2, s.length -3))
+        .filter(s => !accepted_parameters.find(p => p === s))
+        .forEach(key => list_of_errors.push('In config file, parameter @{' + key + '} is not defined'));
+    return (list_of_errors.length - initial_number_of_errors) === 0;
 };
 
 const validate_field = (field, list_of_errors, error_message) => {
